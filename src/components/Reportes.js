@@ -7,7 +7,7 @@ import TablaInfectados from '../utils/TablaInfectados';
 const Reportes =()=>{
     return(
         <div>
-        <h1>Soy Reporte de Casos</h1>
+        <h1>Reportes de Casos Positivos</h1>
         <TablaInfectados/>
         
         </div>

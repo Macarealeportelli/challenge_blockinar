@@ -24,6 +24,9 @@ import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
 import styled from "styled-components";
 import ExportExcel from "react-export-excel";
+import OrdenarPorEdad from "./OrdenarPorEdad";
+
+
 
 const ExcelFile = ExportExcel.ExcelFile;
 const ExcelSheet = ExportExcel.ExcelSheet;
@@ -34,7 +37,7 @@ const ContainerGeneral = styled.div`
   flex-direction: column;
   margin: 50px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   max-width: 90%;
 `;
 
@@ -171,10 +174,11 @@ export default function TablaInfectados() {
   const classes = useStyles2();
   const [page, setPage] = React.useState(0);
   const [rows, setRows] = useState([]);
+  const [params, setParams] = useState("");
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   useEffect(() => {
-    const url_data = `https://5e693ec6d426c00016b7ec9e.mockapi.io/CV1/infected`;
+    const url_data = `https://5e693ec6d426c00016b7ec9e.mockapi.io/CV1/infected${params}`;
 
     axios.get(url_data).then((response) => {
       let newRows = response.data.map((result) => {
@@ -195,8 +199,9 @@ export default function TablaInfectados() {
       });
       setRows(newRows);
     });
-  }, []);
+  }, [params]);
 
+  
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
@@ -216,6 +221,7 @@ export default function TablaInfectados() {
 
   return (
     <ContainerGeneral>
+      <OrdenarPorEdad params={params} setParams={setParams}/>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="custom pagination table">
           <TableHead>
