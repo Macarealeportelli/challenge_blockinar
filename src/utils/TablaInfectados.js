@@ -233,10 +233,7 @@ export default function TablaInfectados() {
               ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : rows
             ).map((row) => (
-              <TableRow
-                key={row.id}
-                style={{ color: !row.live ? "black" : "red" }}
-              >
+              <TableRow  key={row.id} >
                 <TableCell style={{ width: 160 }} align="left">
                   {row.name}
                 </TableCell>
@@ -253,7 +250,8 @@ export default function TablaInfectados() {
                   {row.country}
                 </TableCell>
               </TableRow>
-            ))}
+            )
+            )}
             {emptyRows > 0 && (
               <TableRow style={{ height: 53 * emptyRows }}>
                 <TableCell colSpan={6} />
