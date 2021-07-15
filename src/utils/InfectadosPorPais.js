@@ -58,9 +58,7 @@ console.log(paises, infectados)
 
   return (
     <div>
-      <div className="header">
-        <h1 className="title">Cantidad de Personas Infectadas por CoVid-19</h1>
-      </div>
+     
       {/* <Bar data={data} options={options} /> */}
     </div>
   );

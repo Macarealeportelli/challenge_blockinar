@@ -1,17 +1,26 @@
 import React from "react";
-import FormularioCarga from "../utils/FormularioCarga"
+import FormularioCarga from "../utils/FormularioCarga";
+import styled from "styled-components";
 
-const ReporteNuevoCaso=()=>{
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
+const Header = styled.h1`
+  font-size: 60px;
+  text-align: center;
+`;
 
-    return(
-        <div>
-        <h2>Reporte de Nuevo Caso de CoVid-19</h2>
-          <div>
-            <FormularioCarga/>
-        </div>
-        </div>
-    )
-}
+const ReporteNuevoCaso = () => {
+  return (
+    <Container>
+      <Header>Reporte de Nuevos Casos Confirmados</Header>
+      <div>
+        <FormularioCarga />
+      </div>
+    </Container>
+  );
+};
 
 export default ReporteNuevoCaso;

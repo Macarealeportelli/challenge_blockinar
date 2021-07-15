@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const BarraNav=styled.nav`
     display: flex;
-    height: 100px;
+    height: 120px;
     align-items: center;
     padding: 10px;
     
