@@ -7,10 +7,6 @@ import useFetch from "../utils/useFetch";
 
 const url_paises = "http://5e693ec6d426c00016b7ec9e.mockapi.io/CV1/countries"
 
-interface ChipData {
-  key: number;
-  label: string;
-}
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
