@@ -10,7 +10,7 @@ const Reportes =()=>{
         <div>
         <h1>Reportes de Casos Positivos</h1>
         <TablaInfectados/>
-        <CurvaEvolutiva/>
+        {/* <CurvaEvolutiva/> */}
         </div>
     )
 };

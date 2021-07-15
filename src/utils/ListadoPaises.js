@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
 import TagFacesIcon from '@material-ui/icons/TagFaces';
-import useFetch from "../utils/useFetch";
+import useFetch from "../hooks/useFetch";
 
 const url_paises = "http://5e693ec6d426c00016b7ec9e.mockapi.io/CV1/countries"
 
