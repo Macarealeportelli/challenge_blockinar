@@ -1,84 +1,68 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios'
-import { Bar } from 'react-chartjs-2';
+import React from "react";
+import { useState } from "react";
+import useFetch from "./useFetch";
+// import { Bar } from "react-chartjs-2";
+
+const url_paises = "http://5e693ec6d426c00016b7ec9e.mockapi.io/CV1/countries";
 
 const InfectadosPorPais = () => {
-  const [results, setResults] = useState([]);
-  let countries = [];
-  let qtyInfected = [];
-  let options = {};
-  let data = {};
-  let barColor = [];
+  
+    let paises = [];
+    let infectados = [];
 
-
-  const getCountries = () => {
-    countries = results.map(result => {
-      return (result.name)
-    })
-    console.log(countries)
-  }
-
-  const getQtyCasesForCountrie = () => {
-    qtyInfected = results.map(result => {
-      return (result.infected)
-    })
-  }
-
-  const setConfig = () => {
-    barColor = results.map(result => {
-      return ('#069dba')
+  const infoPaises = useFetch(url_paises);
+  console.log(infoPaises)
+    infoPaises.map((elemento)=>{
+        paises.push(elemento.name)
+        infectados.push(elemento.infected)
     })
 
-    data = {
-      labels: countries,
-      datasets: [
-        {
-          label: 'Cantidad de Infectados',
-          data: qtyInfected,
-          backgroundColor: barColor,
-          borderWidth: 1,
-        },
-      ],
-    };
+console.log(paises, infectados)
 
-    options = {
-      indexAxis: 'y',
-      elements: {
-        bar: {
-          borderWidth: 2,
-        },
+  const data = {
+    labels: paises,
+    datasets: [
+      {
+        label: "Personas Infectadas",
+        data: infectados,
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.2)",
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+        ],
+        borderWidth: 1,
       },
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'right',
-        },
-        title: {
-          display: true,
-          text: 'Cantidad de infectados de COVID-19 por País',
-        },
+    ],
+  };
+
+  const options = {
+    indexAxis: "y",
+    
+    elements: {
+      bar: {
+        borderWidth: 2,
       },
-    };
-
-  }
-
-  useEffect(() => {
-    const searchString = `https://5e693ec6d426c00016b7ec9e.mockapi.io/CV1/countries`
-    axios.get(searchString)
-      .then(response => {
-        console.log(response.data)
-        setResults(response.data)
-      })
-  }, []);
+    },
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "right",
+      },
+      title: {
+        display: true,
+        text: "Cantidad de Personas Infectadas por CoVid-19",
+      },
+    },
+  };
 
   return (
     <div>
-      {results && getCountries()}
-      {results && getQtyCasesForCountrie()}
-      {results && setConfig()}
-      <Bar data={data} options={options} />
+      <div className="header">
+        <h1 className="title">Cantidad de Personas Infectadas por CoVid-19</h1>
+      </div>
+      {/* <Bar data={data} options={options} /> */}
     </div>
-  )
-}
-
+  );
+};
 export default InfectadosPorPais;
