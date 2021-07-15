@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import useFetch from "./useFetch";
+import useFetch from "../hooks/useFetch";
 // import { Bar } from "react-chartjs-2";
 
 const url_paises = "http://5e693ec6d426c00016b7ec9e.mockapi.io/CV1/countries";
