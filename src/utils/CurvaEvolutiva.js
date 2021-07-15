@@ -17,6 +17,8 @@ const CurvaEvolutiva = () => {
 
   console.log(fechasInfeccion);
 
+  const currentYear=2021;
+
   const meses = [
     { id: 1, name_month: "Enero", days_month: 31 },
     { id: 2, name_month: "Febrero", days_month: 28 },
@@ -32,7 +34,7 @@ const CurvaEvolutiva = () => {
     { id: 12, name_month: "Diciembre", days_month: 31 },
   ];
 
-  
+
 
   const data = {
     labels: casosDiarios,
