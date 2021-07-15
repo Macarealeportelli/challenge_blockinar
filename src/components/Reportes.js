@@ -1,5 +1,5 @@
 import React from 'react';
-import CurvaEvolutiva from '../utils/CurvaEvolutiva';
+// import CurvaEvolutiva from '../utils/CurvaEvolutiva';
 import TablaInfectados from '../utils/TablaInfectados';
 import styled from "styled-components";
 
