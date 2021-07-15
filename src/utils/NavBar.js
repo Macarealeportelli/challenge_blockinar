@@ -25,6 +25,22 @@ const StyledLink= styled(Link)`
   
 `;
 
+const StyledLinkButton= styled(Link)`
+    text-decoration: none;
+    margin: 20px;
+    padding: 10px;
+    height: 20px;
+    background-color: red;
+    border-radius: 8px;
+    &:visited {
+    color: #fafafa;
+  }
+    &:active{
+        color: #4949E5;
+    }
+  
+`;
+
 const Logo=styled.img`
     height: 100px;
     margin: 30px;
@@ -33,6 +49,7 @@ const Logo=styled.img`
 const RouteContainer=styled.div`
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     width: 80%;
 `
 
@@ -46,6 +63,7 @@ const NavBar=()=>{
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/infectados">Reportes</StyledLink>
         <StyledLink to="/estadisticas">Estadísticas</StyledLink>
+        <StyledLinkButton to="/reporte-nuevo-caso">Nuevo Caso</StyledLinkButton>
         </RouteContainer>
         </BarraNav> 
         

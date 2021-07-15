@@ -34,7 +34,8 @@ const CurvaEvolutiva = () => {
     { id: 12, name_month: "Diciembre", days_month: 31 },
   ];
 
-
+  const casosDiarios=[];
+  const diasMesActual=[];
 
   const data = {
     labels: casosDiarios,
